@@ -1,0 +1,178 @@
+.holika {
+    text-align: center;
+    position: relative;
+    &:before {
+        content: " ";
+        position: absolute;
+        right: 5px;
+        top: -60px;
+        border: 1px solid $color--light--gray;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}
+
+.holika__smallHeader {
+    font-weight: 500;
+    font-size: 20px;
+    color: $color--gray;
+    margin: 45px 0;
+}
+
+.holika__logo {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.holika__logoGrid {
+    display: none;
+}
+
+.holika_images {
+    width: 100%;
+    position: relative;
+    height: 311px;
+    margin-bottom: 60px;
+    &:before {
+        @include pseudoQuot;
+        right: 8px;
+        top: 16px;
+    }
+    &:after {
+        @include pseudoCircle;
+        bottom: 20%;
+        left: 7.5%;
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.holika__imgCont {
+    width: 70%;
+    position: absolute;
+    &:first-child {
+        left: 0;
+        top: 0;
+        &:before {
+            content: " ";
+            position: absolute;
+            left: 25%;
+            top: 0;
+            transform: rotate(45deg) translateY(-66%);
+            width: 2px;
+            height: 60px;
+            background-color: $color--pink;
+        }
+    }
+
+    &:nth-child(2n) {
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.holika__img {
+    width: 100%;
+}
+
+@media (min-width: $desktop--min--width) {
+    .holika:before {
+        top: 60px;
+        right: 120px;
+    }
+
+    .holika__smallHeader {
+        font-size: 24px;
+        padding-bottom: 60px;
+        margin-bottom: 0;
+        position: relative;
+        display: inline-block;
+        &:before {
+            @include pseudoQuot;
+            left: -90px;
+            top: -15px;
+            width: 16px;
+            height: 12px;
+        }
+        &:after {
+            content: " ";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 210px;
+            height: 1px;
+            background-color: #ccc;
+        }
+    }
+
+    .holika__logoCont {
+        width: 600px / 1920px * 100vw;
+        max-width: 600px / 1920px;
+        margin: 60px auto;
+        position: relative;
+        &:before {
+            @include pseudoCircle;
+            left: calc(-25vw + 150px);
+            top: 30px;
+        }
+    }
+
+    .holika__logo {
+        width: 100%;
+        border: 0;
+        padding: 0;
+    }
+
+    .holika__logoGrid {
+        width: 120px / 1920px * 100vw;
+        max-width: 120px / 1920px * 100vw;
+        display: block;
+        position: absolute;
+        right: calc(-25vw + 150px);
+        top: 20%;
+    }
+
+    .holika_images {
+        height: 45vw;
+        max-height: 860px;
+        &:before {
+            width: 25px;
+            height: 25px;
+            right: 25%;
+        }
+        &:after {
+            width: 1px;
+            height: 60px;
+            border: 0;
+            background-color: $color--light--gray;
+            border-radius: 0;
+            transform: rotate(45deg);
+            left: 30%;
+            bottom: 0;
+        }
+    }
+
+    .holika__imgCont {
+        width: 55%;
+    }
+
+    .holika__makeAppointmentCont {
+        margin: 0 0 0 120px;
+        transform: translateY(-70%);
+    }
+}
+
+@media (min-width: $big--desktop--min--width) {
+    .holika__smallHeader {
+        font-size: 36px;
+        padding-bottom: 45px;
+    }
+
+    .holika__logoCont {
+        margin: 120px auto;
+    }
+}
