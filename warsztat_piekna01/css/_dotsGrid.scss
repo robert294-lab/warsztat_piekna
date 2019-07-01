@@ -1,0 +1,45 @@
+.dotsGrid {
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    grid-gap: 30px;
+    position: relative;
+}
+
+.dotsGrid__dot {
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.dotsGrid__second {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.dotsGrid--pink {
+    display: none;
+}
+
+@media (min-width: $desktop--min--width) {
+    .dotsGrid {
+        grid-gap: 22px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .dotsGrid--pink {
+        display: grid;
+        z-index: -1;
+        .dotsGrid__dot {
+            background-color: $color--pink;
+        }
+    }
+}
+
+@media (min-width: $big--desktop--min--width) {
+    .dotsGrid {
+        grid-gap: 30px;
+    }
+}
