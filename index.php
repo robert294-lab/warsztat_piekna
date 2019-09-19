@@ -1,9 +1,9 @@
-﻿           <?php get_header(); ?>
+                  <?php get_header(); ?>
 		   <?php get_sidebar(); ?>
 <?php
-$args = array('post_type' => 'Oferty');
+$args = array('post_type' => 'Oferty','numberspost'=>-1);
 $Oferty = get_posts($args);
-$args2 = array('post_type' => 'Promocje');
+$args2 = array('post_type' => 'Promocje', 'numberspost'=>-1);
 $Promocje = get_posts($args2);
 ?>
 
@@ -20,28 +20,28 @@ $Promocje = get_posts($args2);
             </h2>
 
             <section class="welcomeOffer">
-            <div class="welcomeOffer__box welcomeOffer__box >">
-  <?php the_post();
+            <div class="welcomeOffer__box welcomeOffer__box">
+                <div class="welcomeOffer__box">
+                <?php the_post();
         $size = 'full';
 				foreach ($Oferty
 
-                 as $key => $slide) {
+                 as $key => $slide){
 
             $offer_number = get_field('offer_number', $slide->ID);
             $offer_title = get_field('offer_title', $slide->ID);
             $offer_text = get_field('offer_text', $slide->ID);
             $offer_image = get_field('offer_image', $slide->ID);
             $more_text = get_field('more_text', $slide->ID);
-				}				 
-?>
-                <div class="welcomeOffer__box">
+                 
+					?>
                     <div class="welcomeOffer__number">
                         <?= $offer_number ?>
                     </div>
-                    <h2 class="welcomeOffer__header">
+                   <h2 class="welcomeOffer__header" style="width: max-content;">
                         <?= $offer_title ?>
                     </h2>
-                    <p class="welcomeOffer__text" >
+                    <p class="welcomeOffer__text" style="width: 200%;">
                         <?= $offer_text ?>
                     </p>
                     <div
@@ -62,7 +62,9 @@ $Promocje = get_posts($args2);
                         <span><?= $more_text ?></span>
                         <img src="<?php bloginfo('template_directory'); ?>/img/icons/arrow.svg" alt="" class="welcomeOffer__arrow">
                     </a>
+                    <?php } ?>
                 </div>
+				</div>
 				</section>
 
             <section class="holika">
@@ -140,7 +142,7 @@ $Promocje = get_posts($args2);
                 </div>
                 <img src="<?php bloginfo('template_directory'); ?>/img/icons/map.svg" alt="" class="contact__icon" />
                 <div class="contact__mapCont">
-
+<link rel="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo2SsZ8cEf6dwEyBxgrR0pXSpjtlqgiro&amp;callback=initMap" async="" defer="">
                     <!-- Here comes the map from Google Maps API in js/map.js-->
                 </div>
                 <div class="contact__infoCont">
@@ -182,21 +184,6 @@ $Promocje = get_posts($args2);
                 </div>
             </section>
             <section class="promotions">
-			<?php the_post();
-        $size = 'full';
-				foreach ($Promocje
-
-                 as $key => $slide) {
-
-            $promotions_text = get_field('promotions_text', $slide->ID);
-            $current = get_field('current', $slide->ID);
-            $promotions = get_field('promotions', $slide->ID);
-            $promotion_title = get_field('promotion_title', $slide->ID);
-            $promotion_text = get_field('promotion_text', $slide->ID);
-            $promotions_date = get_field('promotions_date', $slide->ID);
-            $look = get_field('look', $slide->ID);
-				}
-				?>
                 <div class="promotions__hero">
                     <div
                         class="promotions__heroText"
@@ -205,7 +192,7 @@ $Promocje = get_posts($args2);
                         data-aos-duration="1200"
                         data-aos-delay="350"
                     >
-                        <?= $promotions_text ?>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, neque incidunt nihil harum tenetur fugit.
                     </div>
                     <div class="promotions__imgCont">
                         <img src="<?php bloginfo('template_directory'); ?>/img/chair.png" alt="" class="promotions__img" />
@@ -218,12 +205,20 @@ $Promocje = get_posts($args2);
                         data-aos-duration="1200"
                         data-aos-delay="350"
                     >
-                        <?= $current ?>
+                        Aktualne
                         <span class="promotions__header--withUnderline">
-                             <?= $promotions ?>
+                             promocje
                         </span>
                     </h2>
-                    <div class="promotions__cont">
+                    <div class="promotions__cont ">
+						<?php the_post();
+				foreach ($Promocje
+
+                 as $key => $slide) {
+            $promotion_title = get_field('promotion_title', $slide->ID);
+            $promotion_text = get_field('promotion_text', $slide->ID);
+            $promotions_date = get_field('promotions_date', $slide->ID);
+ 				?>
                         <div class="promotions__box">
                             <h5 class="promotions__boxHeader">
                                 <?= $promotion_title ?>
@@ -263,7 +258,8 @@ $Promocje = get_posts($args2);
                                     <div class="dotsGrid dotsGrid--pink"></div>
                                 </div>
                             </div>
-                        </div>
+                      <?php } ?>
+						</div>
                     </div>
                 </div>
             </section>
